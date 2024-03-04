@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Eye</title>
+    <meta name="description" content="EliteEye - Super Search Engine">
+    <meta name="keywords" content="EliteEye,Super Search Engine">
+    <meta name="author" content="Humayun Shariar Himu">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EliteEye - Super Search Engine" />
+    <meta property="og:description" content="EliteEye - Super Search Engine" />
+    <meta property="og:url" content="https://www.eliteeye.pages.dev" />
+    <meta property="og:image" content="image link" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon link" />
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            flex-direction: column;
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+
+        .btn {
+            background: #fff;
+            position: relative;
+            border: 1px solid transparent;
+            cursor: pointer;
+            padding: 0.5em 2em;
+            /* Adjusted padding */
+            border-radius: 100px;
+            overflow: hidden;
+            font-size: 15px;
+            /* Adjusted font size */
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn.active {
+            background: #000;
+            border: 1px solid white;
+        }
+
+        .btn span {
+            font-size: 1.5em;
+            position: relative;
+            z-index: 200;
+            color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #search-container {
+            width: 100%;
+            max-width: 800px;
+            /* Limiting maximum width */
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            overflow: auto;
+            /* Allow content to scroll if it exceeds width */
+        }
+
+        #search-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #search-container button:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        #search-container input[type="text"] {
+            width: 50%;
+            /* Set width to 50% */
+            margin: 0 auto;
+            /* Center align horizontally */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Create 4 columns */
+            gap: 10px;
+            /* Add gap between buttons */
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search-container">
+        <h1>EliteEye</h1>
+        <input type="text" placeholder="Enter your keyword" id="search-box">
+        <br>
+        <div>
+            <h1>Search Engine</h1>
+            <div class="button-container">
+                <button onclick="search('google')" class="btn">Google</button>
+                <button onclick="search('yahoo')" class="btn">Yahoo</button>
+                <button onclick="search('bing')" class="btn">Bing</button>
+                <button onclick="search('duckduckgo')" class="btn">DuckDuckGo</button>
+                <button onclick="search('baidu')" class="btn">Baidu</button>
+                <button onclick="search('ask')" class="btn">Ask</button>
+                <button onclick="search('yandex')" class="btn">Yandex</button>
+                <button onclick="search('naver')" class="btn">Naver</button>
+            </div>
+            <!-- information -->
+            <h1>Information</h1>
+            <div class="button-container">
+                <button onclick="search('wikipedia')" class="btn">Wikipedia</button>
+                <button onclick="search('britannica')" class="btn">britannica</button>
+                <button onclick="search('encyclopedia')" class="btn">encyclopedia</button>
+                <button onclick="search('infoplease')" class="btn">infoplease</button>
+                <button onclick="search('citizendium')" class="btn">citizendium</button>
+                <button onclick="search('quora')" class="btn">quora</button>
+            </div>
+            <!-- image and gif -->
+            <h1>Image & gif</h1>
+            <div class="button-container">
+                <button onclick="search('unsplash')" class="btn">unsplash</button>
+                <button onclick="search('pexels')" class="btn">pexels</button>
+                <button onclick="search('pixabay')" class="btn">pixabay</button>
+                <button onclick="search('shutterstock')" class="btn">shutterstock</button>
+                <button onclick="search('freepik')" class="btn">freepik</button>
+                <button onclick="search('giphy')" class="btn">giphy</button>
+                <button onclick="search('gifer')" class="btn">gifer</button>
+                <button onclick="search('imgflip')" class="btn">imgflip</button>
+                <button onclick="search('tenor')" class="btn">tenor</button>
+            </div>
+            <!-- videos -->
+            <h1>Videos</h1>
+            <div class="button-container">
+                <button onclick="search('youtube')" class="btn">youtube</button>
+                <button onclick="search('dailymotion')" class="btn">dailymotion</button>
+                <button onclick="search('vimeo')" class="btn">vimeo</button>
+                <button onclick="search('coverr')" class="btn">coverr</button>
+                <button onclick="search('twitch')" class="btn">twitch</button>
+                <button onclick="search('amazon')" class="btn">amazon</button>
+
+            </div>
+
+            <!-- Social Media -->
+
+            <h1>Social Media</h1>
+            <div class="button-container">
+                <button onclick="search('facebook')" class="btn">facebook</button>
+                <button onclick="search('twitter')" class="btn">twitter</button>
+                <button onclick="search('tiktok')" class="btn">tiktok</button>
+            </div>
+
+            <!-- Tech -->
+
+            <h1>Tech</h1>
+            <div class="button-container">
+                <button onclick="search('techcrunch')" class="btn">techcrunch</button>
+                <button onclick="search('cnet')" class="btn">cnet</button>
+                <button onclick="search('techradar')" class="btn">techradar</button>
+                <button onclick="search('techapprise')" class="btn">techapprise</button>
+                <button onclick="search('techtunes')" class="btn">techtunes</button>
+            </div>
+
+            <!-- Hacking -->
+
+            <h1>Hacking</h1>
+            <div class="button-container">
+
+                <button onclick="search('hackaday')" class="btn">hackaday</button>
+                <button onclick="search('cybrary')" class="btn">cybrary</button>
+                <button onclick="search('fromdev')" class="btn">fromdev</button>
+                <button onclick="search('hackerone')" class="btn">hackerone</button>
+               
+
+            </div>
+
+            <!-- Programming & Code -->
+
+            <h1>Programming & Code</h1>
+            
+            <div class="button-container">
+                <button onclick="search('github')" class="btn">github</button>
+                <button onclick="search('codepen')" class="btn">codepen</button>
+            </div>
+
+            <!-- Freelancing -->
+
+            <h1>Freelancing</h1>
+
+            <div class="button-container">
+                <button onclick="search('freelancer')" class="btn">freelancer</button>
+                <button onclick="search('fiverr')" class="btn">fiverr</button>
+                <button onclick="search('upwork')" class="btn">upwork</button>
+                <button onclick="search('guru')" class="btn">guru</button>
+                
+            </div>
+
+            <!-- Medicine -->
+
+            <h1>Medicine</h1>
+
+            <div class="button-container">
+                <button onclick="search('medlineplus')" class="btn">medlineplus</button>
+                <button onclick="search('webmd')" class="btn">webmd</button>
+                <button onclick="search('medex')" class="btn">medex</button>
+            </div>
+
+            <!-- News -->
+
+            <h1>News</h1>
+
+            <div class="button-container">
+                <button onclick="search('nytimes')" class="btn">nytimes</button>
+                <button onclick="search('bbc')" class="btn">bbc</button>
+                <button onclick="search('edition')" class="btn">edition</button>
+            </div>
+
+            <!-- Religious -->
+
+            <h1>Religious</h1>
+            <div class="button-container">
+                <button onclick="search('quran')" class="btn">quran</button>
+                <button onclick="search('bhagavadgita')" class="btn">bhagavadgita</button>
+                <button onclick="search('biblegateway')" class="btn">biblegateway</button>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <div id="footer">
+        <p>©Humayun Shariah Himu</p>
+    </div>
+
+    <script>
+        function search(searchEngine) {
+            var keyword = document.getElementById('search-box').value;
+            if (keyword.trim() === '') {
+                alert('Please enter a keyword.');
+                return;
+            }
+            if (searchEngine === 'google') {
+                window.open('https://www.google.com/search?q=' + keyword, '_blank');
+            } else if (searchEngine === 'yahoo') {
+                window.open('https://search.yahoo.com/search?p=' + keyword, '_blank');
+            } else if (searchEngine === 'bing') {
+                window.open('https://www.bing.com/search?q=' + keyword, '_blank');
+            } else if (searchEngine === 'duckduckgo') {
+                window.open('https://duckduckgo.com/?q=' + keyword, '_blank');
+            } else if (searchEngine === 'baidu') {
+                window.open('https://www.baidu.com/s?wd=' + keyword, '_blank');
+            } else if (searchEngine === 'ask') {
+                window.open('https://www.ask.com/web?q=' + keyword, '_blank');
+            } else if (searchEngine === 'yandex') {
+                window.open('https://yandex.com/search/?text=' + keyword, '_blank');
+            } else if (searchEngine === 'naver') {
+                window.open('https://search.naver.com/search.naver?query=' + keyword, '_blank');
+            } else if (searchEngine === 'youtube') {
+                window.open('https://www.youtube.com/results?search_query=' + keyword, '_blank');
+            } else if (searchEngine === 'facebook') {
+                window.open('https://www.facebook.com/search/top/?q=' + keyword, '_blank');
+            }
+            //    information
+            else if (searchEngine === 'wikipedia') {
+                window.open('https://en.wikipedia.org/wiki/Special:Search?search=' + keyword, '_blank');
+            } else if (searchEngine === 'britannica') {
+                window.open('https://www.britannica.com/search?query=' + keyword, '_blank');
+            } else if (searchEngine === 'encyclopedia') {
+                window.open('https://www.encyclopedia.com/gsearch?q=' + keyword, '_blank');
+            } else if (searchEngine === 'infoplease') {
+                window.open('https://www.infoplease.com/search/' + keyword, '_blank');
+            } else if (searchEngine === 'citizendium') {
+                window.open('https://citizendium.org/wiki/' + keyword, '_blank');
+            } else if (searchEngine === 'quora') {
+                window.open('https://www.quora.com/search?q=' + keyword, '_blank');
+            }
+            // Image and gif
+            else if (searchEngine === 'unsplash') {
+                window.open('https://unsplash.com/s/photos/' + keyword, '_blank');
+            } else if (searchEngine === 'pexels') {
+                window.open('https://www.pexels.com/search/' + keyword, '_blank');
+            } else if (searchEngine === 'pixabay') {
+                window.open('https://pixabay.com/images/search/' + keyword, '_blank');
+            } else if (searchEngine === 'shutterstock') {
+                window.open('https://www.shutterstock.com/search/' + keyword, '_blank');
+            } else if (searchEngine === 'freepik') {
+                window.open('https://www.freepik.com/search?ai=' + keyword, '_blank');
+            } else if (searchEngine === 'giphy') {
+                window.open('https://giphy.com/search/' + keyword, '_blank');
+            } else if (searchEngine === 'tenor') {
+                window.open('https://tenor.com/search/' + keyword, '_blank');
+            } else if (searchEngine === 'gifer') {
+                window.open('https://gifer.com/en/gifs/' + keyword, '_blank');
+            } else if (searchEngine === 'imgflip') {
+                window.open('https://imgflip.com/search?q=' + keyword, '_blank');
+            }
+
+            // videos
+
+            else if (searchEngine === 'youtube') {
+                window.open('https://www.youtube.com/results?search_query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'dailymotion') {
+                window.open('https://www.dailymotion.com/search/' + keyword, '_blank');
+            }
+            else if (searchEngine === 'vimeo') {
+                window.open('https://vimeo.com/search?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'coverr') {
+                window.open('https://coverr.co/s?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'twitch') {
+                window.open('https://m.twitch.tv/search?term=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'amazon') {
+                window.open('https://www.amazon.com/s?k=' + keyword, '_blank');
+            }
+
+            // Social Media
+            else if (searchEngine === 'facebook') {
+                window.open('https://www.facebook.com/search/top/?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'twitter') {
+                window.open('https://twitter.com/search?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'tiktok') {
+                window.open('https://www.tiktok.com/search?lang=' + keyword, '_blank');
+            }
+
+            // Tech
+
+            else if (searchEngine === 'techcrunch') {
+                window.open('https://techcrunch.com/search/' + keyword, '_blank');
+            }
+            else if (searchEngine === 'cnet') {
+                window.open('https://www.cnet.com/search/?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'techradar') {
+                window.open('https://www.techradar.com/search?searchTerm=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'techapprise') {
+                window.open('https://techapprise.com/?s=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'techtunes') {
+                window.open('https://www.techtunes.io/?s=' + keyword, '_blank');
+            }
+
+            // Hacking
+
+            else if (searchEngine === 'hackaday') {
+                window.open('https://hackaday.com/blog/?s=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'cybrary') {
+                window.open('https://www.cybrary.it/search?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'fromdev') {
+                window.open('https://www.fromdev.com/?s=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'hackerone') {
+                window.open('https://hackerone.com/opportunities/all/search?ordering=Relevance&search=' + keyword, '_blank');
+            }
+
+            // Programming & Code
+
+
+            else if (searchEngine === 'github') {
+                window.open('https://github.com/search?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'codepen') {
+                window.open('https://codepen.io/search/pens?q=' + keyword, '_blank');
+            }
+
+            // Freelancing
+
+            else if (searchEngine === 'freelancer') {
+                window.open('https://www.freelancer.com/search/projects/?keyword=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'fiverr') {
+                window.open('https://www.fiverr.com/search/gigs?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'upwork') {
+                window.open('https://www.upwork.com/search/profiles/?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'guru') {
+                window.open('https://www.guru.com/d/freelancers/skill/' + keyword, '_blank');
+            }
+
+            // Medicine
+
+            else if (searchEngine === 'medlineplus') {
+                window.open('https://medlineplus.gov/?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'webmd') {
+                window.open('https://www.webmd.com/search/search_results/default.aspx?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'medex') {
+                window.open('https://medex.com.bd/search?search=' + keyword, '_blank');
+            }
+           
+            // News
+            else if (searchEngine === 'nytimes') {
+                window.open('https://www.nytimes.com/search?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'bbc') {
+                window.open('https://www.bbc.co.uk/search?q=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'edition') {
+                window.open('https://edition.cnn.com/search?q=' + keyword, '_blank');
+            }
+
+            // Religious
+
+            else if (searchEngine === 'quran') {
+                window.open('https://search-the-quran.com/search/' + keyword, '_blank');
+            }
+            else if (searchEngine === 'bhagavadgita') {
+                window.open(' https://bhagavadgita.io/search?query=' + keyword, '_blank');
+            }
+            else if (searchEngine === 'biblegateway') {
+                window.open('https://www.biblegateway.com/quicksearch/?quicksearch=' + keyword, '_blank');
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
