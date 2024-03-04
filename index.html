@@ -115,13 +115,22 @@
             /* Add gap between buttons */
             margin-bottom: 50px;
         }
+        .box-css {
+    border: 2px solid transparent; /* Start with transparent border */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Add transition effect */
+}
+
+.box-css:focus {
+    border-color: green; /* Change border color when input is focused */
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add shadow when input is focused */
+}
     </style>
 </head>
 
 <body>
     <div id="search-container">
         <h1>EliteEye</h1>
-        <input type="text" placeholder="Enter your keyword" id="search-box">
+        <input class="box-css" type="text" placeholder="Enter your keyword" id="search-box">
         <br>
         <div>
             <h1>Search Engine</h1>
@@ -152,7 +161,7 @@
                 <button onclick="search('pexels')" class="btn">pexels</button>
                 <button onclick="search('pixabay')" class="btn">pixabay</button>
                 <button onclick="search('shutterstock')" class="btn">shutterstock</button>
-                <button onclick="search('freepik')" class="btn">freepik</button>
+                <!-- <button onclick="search('freepik')" class="btn">freepik</button> -->
                 <button onclick="search('giphy')" class="btn">giphy</button>
                 <button onclick="search('gifer')" class="btn">gifer</button>
                 <button onclick="search('imgflip')" class="btn">imgflip</button>
@@ -176,7 +185,7 @@
             <div class="button-container">
                 <button onclick="search('facebook')" class="btn">facebook</button>
                 <button onclick="search('twitter')" class="btn">twitter</button>
-                <button onclick="search('tiktok')" class="btn">tiktok</button>
+                <!-- <button onclick="search('tiktok')" class="btn">tiktok</button> -->
             </div>
 
             <!-- Tech -->
@@ -184,7 +193,7 @@
             <h1>Tech</h1>
             <div class="button-container">
                 <button onclick="search('techcrunch')" class="btn">techcrunch</button>
-                <button onclick="search('cnet')" class="btn">cnet</button>
+                <!-- <button onclick="search('cnet')" class="btn">cnet</button> -->
                 <button onclick="search('techradar')" class="btn">techradar</button>
                 <button onclick="search('techapprise')" class="btn">techapprise</button>
                 <button onclick="search('techtunes')" class="btn">techtunes</button>
@@ -217,7 +226,7 @@
             <h1>Freelancing</h1>
 
             <div class="button-container">
-                <button onclick="search('freelancer')" class="btn">freelancer</button>
+                
                 <button onclick="search('fiverr')" class="btn">fiverr</button>
                 <button onclick="search('upwork')" class="btn">upwork</button>
                 <button onclick="search('guru')" class="btn">guru</button>
@@ -229,7 +238,7 @@
             <h1>Medicine</h1>
 
             <div class="button-container">
-                <button onclick="search('medlineplus')" class="btn">medlineplus</button>
+                
                 <button onclick="search('webmd')" class="btn">webmd</button>
                 <button onclick="search('medex')" class="btn">medex</button>
             </div>
@@ -316,9 +325,7 @@
                 window.open('https://pixabay.com/images/search/' + keyword, '_blank');
             } else if (searchEngine === 'shutterstock') {
                 window.open('https://www.shutterstock.com/search/' + keyword, '_blank');
-            } else if (searchEngine === 'freepik') {
-                window.open('https://www.freepik.com/search?ai=' + keyword, '_blank');
-            } else if (searchEngine === 'giphy') {
+            }  else if (searchEngine === 'giphy') {
                 window.open('https://giphy.com/search/' + keyword, '_blank');
             } else if (searchEngine === 'tenor') {
                 window.open('https://tenor.com/search/' + keyword, '_blank');
@@ -356,18 +363,14 @@
             else if (searchEngine === 'twitter') {
                 window.open('https://twitter.com/search?query=' + keyword, '_blank');
             }
-            else if (searchEngine === 'tiktok') {
-                window.open('https://www.tiktok.com/search?lang=' + keyword, '_blank');
-            }
+            
 
             // Tech
 
             else if (searchEngine === 'techcrunch') {
                 window.open('https://techcrunch.com/search/' + keyword, '_blank');
             }
-            else if (searchEngine === 'cnet') {
-                window.open('https://www.cnet.com/search/?query=' + keyword, '_blank');
-            }
+           
             else if (searchEngine === 'techradar') {
                 window.open('https://www.techradar.com/search?searchTerm=' + keyword, '_blank');
             }
@@ -405,9 +408,6 @@
 
             // Freelancing
 
-            else if (searchEngine === 'freelancer') {
-                window.open('https://www.freelancer.com/search/projects/?keyword=' + keyword, '_blank');
-            }
             else if (searchEngine === 'fiverr') {
                 window.open('https://www.fiverr.com/search/gigs?query=' + keyword, '_blank');
             }
@@ -420,9 +420,7 @@
 
             // Medicine
 
-            else if (searchEngine === 'medlineplus') {
-                window.open('https://medlineplus.gov/?q=' + keyword, '_blank');
-            }
+            
             else if (searchEngine === 'webmd') {
                 window.open('https://www.webmd.com/search/search_results/default.aspx?query=' + keyword, '_blank');
             }
